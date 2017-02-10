@@ -33,6 +33,27 @@ d9 = "d09.png"
 d10 = "d10.png"
 d11 = "d11.png"
 d12 = "d12.png"
+d13 = "d13.png"
+d14 = "d14.png"
+d15 = "d15.png"
+d16 = "d16.png"
+d17 = "d17.png"
+d18 = "d18.png"
+d19 = "d19.png"
+d20 = "d20.png"
+d21 = "d21.png"
+d22 = "d22.png"
+d23 = "d23.png"
+d24 = "d24.png"
+d25 = "d25.png"
+d26 = "d26.png"
+d27 = "d27.png"
+d28 = "d28.png"
+d29 = "d29.png"
+d30 = "d30.png"
+d31 = "d31.png"
+
+bonusImage = "bonus.png"
 screen = "screen.png"
 duelImage = "duel.png"
 nextImage = "next.png"
@@ -41,7 +62,8 @@ autoDuelImage = "autoduel.png"
 skipImage = "skip.png"
 backImage = "back.png"
 
-duelists = [d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11, d12]
+duelists = [d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11, d12, d13, d14, d15, d16, d17, d18, d19, d20, d21, d22, d23, d24, d25, d26, d27, d28, d29, d30, d31]
+
 def screenShot():
     # fullscreen
     im = ImageGrab.grab_to_file(screen)
@@ -121,6 +143,14 @@ def searchAutoDuel():
         return True
     return False
 
+def searchBonus():
+    x,y = locateImage(screen,bonusImage)
+    if x != 1:
+        leftClick(x,y)
+        print ("BONUS")
+        return True
+    return False
+
 def searchSkip():
     x,y = locateImage(screen,skipImage)
     if x != 1:
@@ -156,10 +186,11 @@ def locateImage(fullImage, partImage):
 
 def main():
     while(True):
-        print ("COMECOU")
+        #print ("COMECOU")
         start = True
         time.sleep(3)
         screenShot()
+        searchBonus()
         if searchDuelist():
             while start:
                 screenShot()
